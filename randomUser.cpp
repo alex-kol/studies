@@ -11,6 +11,7 @@ int main()
 	
 	srand(time(NULL));
 	randNum=rand()%10;
+	
 	do {
 		for(int i=0;i<3;i++){
 			for (;;){
