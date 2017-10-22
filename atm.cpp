@@ -22,7 +22,7 @@ int main()
 	for (int i = 0; i < lenghtArray; i++){
 		pinArray[i] = 0;
 		dataClient[i] = 0;
-    }
+    	}
 	pinArray[0] = ADMIN_PASS;
 
 	//writing pins to an array
