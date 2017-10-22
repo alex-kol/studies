@@ -38,101 +38,101 @@ int main()
 
 	for(;;){
 		for(int i = 0; i < 3; i++){
-            printf("\nInput pin:\n");
-            scanf("%d",&pinCode);
-            if ((pinCode < 1000)||(pinCode > 10000)){
-                printf("Wrong pin!");
-                continue;
-            }
-            if (pinCode == ADMIN_PASS){
-                printf("\nHi, ADMIN\n");
-                printf("Your ~Balance~: %d\n\n",dataClient[0]);
-                printf("1: Balance\n");
-                printf("2: Cash money\n");
-                printf("3: Refill\n");
-                printf("4: Zero data client\n");
-                printf("5: View all accounts\n");
-                printf("6: View all pins\n");
-                scanf("%d",&menuAtm);
-                break;
-            } else {
-                printf("1: Balance\n");
-                printf("2: Cash money\n");
-                printf("3: Refill\n");
-                scanf("%d",&menuAtm);
-                break;
-                }
-        }
+            		printf("\nInput pin:\n");
+            		scanf("%d",&pinCode);
+		    if ((pinCode < 1000)||(pinCode > 10000)){
+			printf("Wrong pin!");
+			continue;
+		    }
+		    if (pinCode == ADMIN_PASS){
+			printf("\nHi, ADMIN\n");
+			printf("Your ~Balance~: %d\n\n",dataClient[0]);
+			printf("1: Balance\n");
+			printf("2: Cash money\n");
+			printf("3: Refill\n");
+			printf("4: Zero data client\n");
+			printf("5: View all accounts\n");
+			printf("6: View all pins\n");
+			scanf("%d",&menuAtm);
+			break;
+		    } else {
+			printf("1: Balance\n");
+			printf("2: Cash money\n");
+			printf("3: Refill\n");
+			scanf("%d",&menuAtm);
+			break;
+			}
+        	}
 		switch(menuAtm){
 			case 1: for (int i = 0; i < lenghtArray; i++){
-						if (pinCode == pinArray[i]){
-							printf("\nBalans: %d\n",dataClient[i]);
-						}
+					if (pinCode == pinArray[i]){
+						printf("\nBalans: %d\n",dataClient[i]);
 					}
-					break;
+				}
+				break;
 			case 2: printf("\nHow much to withdraw money?\n");
-					scanf("%d",&inputCash);
-					for (int i = 0; i < lenghtArray; i++){
-                        if (dataClient[i] > 0){
-                            if (pinCode == pinArray[i]){
-                                dataClient[i] = dataClient[i] - inputCash;
-						    }
-                        }else {
-                            printf("No money on the account!!!");
-                            break;
-                            }
-                    }
-				   	break;
+				scanf("%d",&inputCash);
+				for (int i = 0; i < lenghtArray; i++){
+                        		if (dataClient[i] > 0){
+                            			if (pinCode == pinArray[i]){
+                                			dataClient[i] = dataClient[i] - inputCash;
+						}
+                        		}else {
+                            			printf("No money on the account!!!");
+                            			break;
+                            			}
+                    		}
+				break;
 			case 3: printf("\nEnter the amount of the replenishment:\n");
-					for (int i = 0; i < lenghtArray; i++){
-						if (pinCode == pinArray[i]){
-                            printf("Your balans: %d\n",dataClient[i]);
-						}
+				for (int i = 0; i < lenghtArray; i++){
+					if (pinCode == pinArray[i]){
+                            			printf("Your balans: %d\n",dataClient[i]);
 					}
-					scanf("%d",&refillCash);
-					for (int i = 0; i < lenghtArray; i++){
-						if (pinCode == pinArray[i]){
-                            dataClient[i] = dataClient[i] + refillCash;
-						}
+				}
+				scanf("%d",&refillCash);
+				for (int i = 0; i < lenghtArray; i++){
+					if (pinCode == pinArray[i]){
+                            			dataClient[i] = dataClient[i] + refillCash;
 					}
-				   	break;
+				}
+				break;
 			case 4:	printf("\n***Do I clear all accounts??? Are you sure???***\n");
-					printf("\t\t***Y or N***\n");
-					getchar();
-					scanf(" %c",&clearData);
-					if ((clearData == 'Y') || (clearData == 'y')){
-						for (int i = 1; i < lenghtArray; i++){
-							dataClient[0] += dataClient[i]; // all money for ADMIN :)
-							dataClient[i] = 0;
-						}
-						printf("Balance ADMIN: %d\n",dataClient[0]);
-						for(int i = 1; i < lenghtArray; i++){
-                            printf("%d: ",dataClient[i]);
-                        }
+				printf("\t\t***Y or N***\n");
+				getchar();
+				scanf(" %c",&clearData);
+				if ((clearData == 'Y') || (clearData == 'y')){
+					for (int i = 1; i < lenghtArray; i++){
+						dataClient[0] += dataClient[i]; // all money for ADMIN :)
+						dataClient[i] = 0;
 					}
-					break;
-            case 5:	printf("\n***View ALL accounts (y/n)???***\n");
-					getchar();
-					scanf(" %c",&clearData);
-					if ((clearData == 'Y') || (clearData == 'y')){
-                        printf("Balance ADMIN: %d\n",dataClient[0]);
-						for (int i = 1; i < lenghtArray; i++){
-							printf("%d|",dataClient[i]);
-						}
+					printf("Balance ADMIN: %d\n",dataClient[0]);
+					for(int i = 1; i < lenghtArray; i++){
+                            			printf("%d: ",dataClient[i]);
+                        		}
+				}
+				break;
+			case 5:	printf("\n***View ALL accounts (y/n)???***\n");
+				getchar();
+				scanf(" %c",&clearData);
+				if ((clearData == 'Y') || (clearData == 'y')){
+					printf("Balance ADMIN: %d\n",dataClient[0]);
+					for (int i = 1; i < lenghtArray; i++){
+						printf("%d|",dataClient[i]);
 					}
-					break;
-            case 6:	printf("\n***View ALL pins (y/n)???***\n");
-					getchar();
-					scanf(" %c",&clearData);
-					if ((clearData == 'Y') || (clearData == 'y')){
-                        printf("Pin ADMIN: %d\n",pinArray[0]);
-						for (int i = 1; i < lenghtArray; i++){
-							printf("%d|",pinArray[i]);
-						}
+				}
+				break;
+			case 6:	printf("\n***View ALL pins (y/n)???***\n");
+				getchar();
+				scanf(" %c",&clearData);
+				if ((clearData == 'Y') || (clearData == 'y')){
+					printf("Pin ADMIN: %d\n",pinArray[0]);
+					for (int i = 1; i < lenghtArray; i++){
+						printf("%d|",pinArray[i]);
 					}
-					break;
-			default: printf("\n\tWrong choose!\n");
-                    break;
+				}
+				break;
+		   default: printf("\n\tWrong choose!\n");
+			    break;
 		}
 	}
 	return 0;
