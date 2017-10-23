@@ -3,7 +3,7 @@
 
 const int ADMIN_PASS = 8888;
 const int START_ARRAY = 0;
-const int LENGHT_ARRAY = 50;
+const int LENGHT_ARRAY = 5000;
 const int START_PIN = 1000;
 const int START_CLIENT_BALANCE = 555;
 const int MAX_INPUT_PINS = 3;
@@ -26,7 +26,7 @@ int main()
 	int refillCash = 0;
 	int inputCash = 0;
 	char clearData;
-	
+
 	//zero the array's:pin codes and client data
 	for (int i = START_ARRAY; i < LENGHT_ARRAY; i++){
 		pinArray[i] = 0;
@@ -37,7 +37,6 @@ int main()
 	//writing pins to an array
 	for (int i = START_ARRAY + 1; i < LENGHT_ARRAY; i++){
 		pinArray[i] = START_PIN + i;
-
 	}
 
  	//writing balance to an array
@@ -115,7 +114,7 @@ int main()
 									}
 									printf("Balance ADMIN: %d\n",clientData[0]);
 									for(int i = START_ARRAY + 1; i < LENGHT_ARRAY; i++){
-			                            printf("%d: ",clientData[i]);
+			                            printf("%d|",clientData[i]);
 			                        }
 								}
 								break;
@@ -135,7 +134,7 @@ int main()
 								if ((clearData == 'Y') || (clearData == 'y')){
 			                        printf("Pin ADMIN: %d\nPins clients: ",pinArray[0]);
 									for (int i = START_ARRAY + 1; i < LENGHT_ARRAY; i++){
-										printf("%d ",pinArray[i]);
+										printf("%d|",pinArray[i]);
 									}
 								}
 								break;
