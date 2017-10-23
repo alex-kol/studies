@@ -1,3 +1,5 @@
+//emulator ATM
+
 #include <stdio.h>
 #include <stdlib.h>
 
