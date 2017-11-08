@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE_STRING 100000
+#define SIZE_STRING 1000000
 const int START_ARRAY = 0;
 const int SIZE_ALPHABET = 26;
 
