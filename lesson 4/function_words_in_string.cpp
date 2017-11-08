@@ -6,8 +6,7 @@
 
 const int START_ARRAY = 0;
 
-int searchWords (char* inputString)
-{
+int searchWords (char* inputString){
     int wordCount = 0;
     int flag = 0;
     for (int i = START_ARRAY; inputString[i] != '\0'; i++){
