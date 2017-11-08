@@ -5,8 +5,7 @@
 const int START_ARRAY = 0;
 const int SIZE_ALPHABET = 26;
 
-void zeroArray (int* countTemp, int* countLetter, int* indexArray)
-{
+void zeroArray (int* countTemp, int* countLetter, int* indexArray){
     for (int i = START_ARRAY; i < SIZE_ALPHABET; i++){                //zero's in the all array
         countTemp[i] = 0;
         countLetter[i] = 0;
@@ -14,8 +13,7 @@ void zeroArray (int* countTemp, int* countLetter, int* indexArray)
     }
 }
 
-char* getString()
-{
+char* getString(){
     char* enterString;
 
     enterString = (char*) malloc(SIZE_STRING * sizeof(char));
@@ -27,8 +25,7 @@ char* getString()
     return enterString;
 }
 
-void getLetterCounter(char* inputedArray, int* countTemp, int* countLetter)
-{
+void getLetterCounter(char* inputedArray, int* countTemp, int* countLetter){
     for (int i = START_ARRAY; i < SIZE_ALPHABET; i++){
         if (inputedArray[i] >= 'A' && inputedArray[i] <='Z') {
             countLetter[inputedArray[i]-'A']++;
@@ -41,8 +38,7 @@ void getLetterCounter(char* inputedArray, int* countTemp, int* countLetter)
     }
 }
 
-void sortCountLetter (int* countLetter)
-{
+void sortCountLetter (int* countLetter){
     for(int i = START_ARRAY; i < SIZE_ALPHABET; i++){                    // sorting bubble
         for(int j = i + 1; j < SIZE_ALPHABET; j++){
             if(countLetter[i] < countLetter[j]){
@@ -54,8 +50,7 @@ void sortCountLetter (int* countLetter)
     }
 }
 
-void sortLetterIndex(int* countTemp, int* countLetter, int* indexArray)
-{
+void sortLetterIndex(int* countTemp, int* countLetter, int* indexArray){
     int position = 0;
 
     for (int j = START_ARRAY; j < SIZE_ALPHABET; j++){                //sorting elements index
@@ -71,8 +66,7 @@ void sortLetterIndex(int* countTemp, int* countLetter, int* indexArray)
     }
 }
 
-void showResult(int* countLetter, int* indexArray)
-{
+void showResult(int* countLetter, int* indexArray){
     printf("\nCounted letters (sorting max->min):\n");
     int j = 0;
     for (int i = START_ARRAY; i < SIZE_ALPHABET; i++){
