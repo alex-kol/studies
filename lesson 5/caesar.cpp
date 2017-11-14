@@ -24,7 +24,7 @@ char* getString (char* enterString){
     return enterString;
 }
 
-char* encryptString (char* enterString, int encryptionKey, char lenghtStr){
+void encryptString (char* enterString, int encryptionKey, char lenghtStr){
    	for (int i = START_ARRAY; i < lenghtStr; i++){
 		if ((enterString[i] >= 'a') && (enterString[i] <= 'z')){
 
@@ -40,10 +40,9 @@ char* encryptString (char* enterString, int encryptionKey, char lenghtStr){
 		}
     	}
 	printf("\nYou encryption string: %s\n",enterString);
-	return enterString;
 }
 
-char* decryptString (char* enterString, int decryptionKey, char lenghtStr){
+void decryptString (char* enterString, int decryptionKey, char lenghtStr){
 	for (int i = START_ARRAY; i < lenghtStr; i++){
 		if ((enterString[i] >= 'a') && (enterString[i] <= 'z')){
 			enterString[i] = enterString[i] - (decryptionKey % ENGLISH_ALPHABET);
@@ -53,23 +52,10 @@ char* decryptString (char* enterString, int decryptionKey, char lenghtStr){
 		}
     	}
 	printf("\nYou decryption string: %s\n",enterString);
-	return enterString;
 }
 
 int main()
 {
-
-/*    int main (int argc, char * argv[]) {
-        int i;
-         for (i = 0 ; i < argc; i++) {
-                 printf("Argument %d: %s\n", i, argv[i]);
-         }
-         if(argc == 1) {
-                 printf("Command line has no additional arguments\n");
-         }
-         return 0;
-*/
-
     int keyForString = 0;
     char* inputString;
     char lenghtString;
