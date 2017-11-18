@@ -24,20 +24,20 @@ void encryptString (char enteredString[], char key[]){
     char lenghtKey = strlen(key);
 
     for (int i = 0, n = 0, j = lenghtString; i < j; i++, n++){
-		if (n >= lenghtKey){
-        	n = n % lenghtKey;
-        }
-        if (enteredString[i] >= 97 && enteredString[i] <= 122){
-        	enteredString[i] = (enteredString[i] + key[n]);
-		}
-        if(enteredString[i] >= 65 && enteredString[i] <= 90){
-        	enteredString[i] = (enteredString[i] + key[n]);
-		}
-        if (((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && enteredString[i] <= 90)) == 0){
-        	enteredString[i] = enteredString[i] - 26 ;
-    	}
+	if (n >= lenghtKey){
+		n = n % lenghtKey;
 	}
-	printf("\nYou encryption string: %s\n", enteredString);
+	if (enteredString[i] >= 97 && enteredString[i] <= 122){
+		enteredString[i] = (enteredString[i] + key[n]);
+	}
+	if(enteredString[i] >= 65 && enteredString[i] <= 90){
+		enteredString[i] = (enteredString[i] + key[n]);
+	}
+	if (((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && enteredString[i] <= 90)) == 0){
+		enteredString[i] = enteredString[i] - 26 ;
+	}
+    }
+    printf("\nYou encryption string: %s\n", enteredString);
 }
 
 void decryptString(char enteredString[] ,char key[]){
@@ -45,15 +45,15 @@ void decryptString(char enteredString[] ,char key[]){
     char lenghtKey = strlen(key);
 
 	for (int i = 0,n = 0, j = lenghtString; i < j  ; i++, n++){
-    	if(n >= lenghtKey){
-        	n = n % lenghtKey;
-        }
-        if ((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && (enteredString[i] <= 90))){
-    		enteredString[i] = enteredString[i] - key[n];
-         }
-        if (((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && enteredString[i] <= 90)) == 0){
-        	enteredString[i] = enteredString[i] + 26 ;
-        }
+		if(n >= lenghtKey){
+			n = n % lenghtKey;
+		}
+		if ((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && (enteredString[i] <= 90))){
+			enteredString[i] = enteredString[i] - key[n];
+		 }
+		if (((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && enteredString[i] <= 90)) == 0){
+			enteredString[i] = enteredString[i] + 26 ;
+		}
 	}
 }
 
@@ -61,12 +61,12 @@ void realkey (char key []){
     char lenghtKey = strlen(key);
 
 	for(int i = 0; i < lenghtKey; i++){
-    	if(strlwr(key)){
-        	key[i] = key[i] - 64;
-        }
-        else{
-        	key[i] = key[i] - 96;
-    	}
+		if(strlwr(key)){
+			key[i] = key[i] - 64;
+		}
+		else{
+			key[i] = key[i] - 96;
+		}
 	}
 }
 
@@ -89,7 +89,7 @@ int main()
 	scanf("%c", &cryptKey);
 	if ((cryptKey == 'Y')||(cryptKey == 'y')){
 		decryptString(inputString, keyForString);
-	    printf("You decryption string: %s\n",inputString);
+		printf("You decryption string: %s\n",inputString);
 	}
 	free(inputString);
 }
