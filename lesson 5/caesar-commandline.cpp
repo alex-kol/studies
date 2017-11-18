@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define SIZE_STRING 1000000
 #define START_ARRAY 0
 #define ENGLISH_ALPHABET 26
-#define MENU_E 'e'
-#define MENU_D 'd'
 
 char* getString (char* enterString){
     enterString = (char*) malloc(SIZE_STRING * sizeof(char));
@@ -54,30 +53,23 @@ void decryptString (char* enterString, int decryptionKey, char lenghtStr){
 	printf("\nYou decryption string: %s\n",enterString);
 }
 
-int main()
+int main(int argc, char* argv[])
 {
     int keyForString = 0;
     char* inputString;
     char lenghtString;
     char cryptMenu;
 
-    for(;;){
-        printf("\nWhat to do with the string? Encrypt \"E\" / Decrypt \"D\"\t-=EXIT: ctrl+C=-\n");
-        scanf("%c",&cryptMenu);
-        printf("\nInput crypt key:\n");
-        scanf("%d",&keyForString);
-
-        inputString = getString(inputString);
-        lenghtString = strlen(inputString);
-
-        switch (cryptMenu){
-            case MENU_E:    encryptString(inputString,keyForString,lenghtString);
-                            break;
-            case MENU_D:    decryptString(inputString,keyForString,lenghtString);
-                            break;
-            default:        printf("Wrong input!\n");
-                            break;
-        }
+    printf("\nWhat to do with the string? Encrypt \"-e\" / Decrypt \"-d\"\n");
+    printf("\nInput crypt key:\n");
+    scanf("%d",&keyForString);
+    inputString = getString(inputString);
+    lenghtString = strlen(inputString);
+    if (!strcmp (argv[1], "-e")){
+        encryptString(inputString,keyForString,lenghtString);
+    }
+    if (!strcmp (argv[1], "-d")){
+        decryptString(inputString,keyForString,lenghtString);
     }
     free(inputString);
     return 0;
