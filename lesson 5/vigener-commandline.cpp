@@ -20,22 +20,22 @@ char* getString (char* enterString){
 }
 
 void encryptString (char enteredString[], char key[]){
-    char lenghtString = strlen(enteredString);
-    char lenghtKey = strlen(key);
+  	char lenghtString = strlen(enteredString);
+	char lenghtKey = strlen(key);
 
-    for (int i = 0, n = 0, j = lenghtString; i < j; i++, n++){
+	for (int i = 0, n = 0, j = lenghtString; i < j; i++, n++){
 		if (n >= lenghtKey){
-        	n = n % lenghtKey;
-        }
-        if (enteredString[i] >= 97 && enteredString[i] <= 122){
-        	enteredString[i] = (enteredString[i] + key[n]);
+			n = n % lenghtKey;
 		}
-        if(enteredString[i] >= 65 && enteredString[i] <= 90){
-        	enteredString[i] = (enteredString[i] + key[n]);
+		if (enteredString[i] >= 97 && enteredString[i] <= 122){
+			enteredString[i] = (enteredString[i] + key[n]);
 		}
-        if (((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && enteredString[i] <= 90)) == 0){
-        	enteredString[i] = enteredString[i] - 26 ;
-    	}
+		if(enteredString[i] >= 65 && enteredString[i] <= 90){
+			enteredString[i] = (enteredString[i] + key[n]);
+		}
+		if (((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && enteredString[i] <= 90)) == 0){
+			enteredString[i] = enteredString[i] - 26 ;
+		}
 	}
 	printf("\nYou encryption string: %s\n", enteredString);
 }
@@ -45,15 +45,15 @@ void decryptString(char enteredString[] ,char key[]){
     char lenghtKey = strlen(key);
 
 	for (int i = 0,n = 0, j = lenghtString; i < j  ; i++, n++){
-    	if(n >= lenghtKey){
-        	n = n % lenghtKey;
-        }
-        if ((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && (enteredString[i] <= 90))){
-    		enteredString[i] = enteredString[i] - key[n];
-         }
-        if (((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && enteredString[i] <= 90)) == 0){
-        	enteredString[i] = enteredString[i] + 26 ;
-        }
+		if(n >= lenghtKey){
+			n = n % lenghtKey;
+		}
+		if ((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && (enteredString[i] <= 90))){
+			enteredString[i] = enteredString[i] - key[n];
+		 }
+		if (((enteredString[i] >= 97 && enteredString[i] <= 122) || (enteredString[i] >= 65 && enteredString[i] <= 90)) == 0){
+			enteredString[i] = enteredString[i] + 26 ;
+		}
 	}
 	printf("You decryption string: %s\n",enteredString);
 }
@@ -61,12 +61,12 @@ void decryptString(char enteredString[] ,char key[]){
 void key (char key []){
     char lenghtKey = strlen(key);
 	for(int i = 0; i < lenghtKey; i++){
-    	if(strlwr(key)){
-        	key[i] = key[i] - 64;
-        }
-        else{
-        	key[i] = key[i] - 96;
-    	}
+		if(strlwr(key)){
+			key[i] = key[i] - 64;
+		}
+		else{
+			key[i] = key[i] - 96;
+		}
 	}
 }
 
@@ -85,10 +85,10 @@ int main(int argc, char* argv[])
 	gets(keyForString);
 	key(keyForString);
 	if (!strcmp (argv[1], "-e")){
-        encryptString(inputString,keyForString);
-    }
-    if (!strcmp (argv[1], "-d")){
-        decryptString(inputString, keyForString);
-    }
+		encryptString(inputString,keyForString);
+    	}
+    	if (!strcmp (argv[1], "-d")){
+        	decryptString(inputString, keyForString);
+    	}
 	free(inputString);
 }
