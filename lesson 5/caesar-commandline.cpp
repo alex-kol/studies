@@ -33,11 +33,11 @@ void encryptString (char* enterString, int encryptionKey, char lenghtStr){
 
             		//If the encrypted letters has gone beyond the boundaries of the alphabet
             		//make circle and return to the begin
-            if (enterString[i] > 'z'){
+            		if (enterString[i] > 'z'){
 				enterString[i] = 'a' + (enterString[i] - 'z') - 1;
-            }
+            		}
 		}
-    }
+    	}
 	printf("\nYou encryption string: %s\n",enterString);
 }
 
@@ -45,11 +45,11 @@ void decryptString (char* enterString, int decryptionKey, char lenghtStr){
 	for (int i = START_ARRAY; i < lenghtStr; i++){
 		if ((enterString[i] >= 'a') && (enterString[i] <= 'z')){
 			enterString[i] = enterString[i] - (decryptionKey % ENGLISH_ALPHABET);
-                if (enterString[i] < 'a'){
-                    enterString[i] = 'z' - ('a' - enterString[i]) + 1;
-                }
+                	if (enterString[i] < 'a'){
+                    		enterString[i] = 'z' - ('a' - enterString[i]) + 1;
+                	}
 		}
-    }
+	}
 	printf("\nYou decryption string: %s\n",enterString);
 }
 
