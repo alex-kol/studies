@@ -14,6 +14,7 @@ private:
             newArray[i] = array[i];
         }
     }
+    
     void addToNotFullArray(int newValue){
         array[currentSize] = newValue;
         currentSize++;
