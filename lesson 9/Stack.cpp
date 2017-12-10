@@ -5,11 +5,11 @@ using namespace std;
 
 int main()
 {
-    Stack <char> St;
+    Stack<char> St;
     St.push('a');
     St.push('b');
-    St.push('c');
     St.push('d');
+    St.push('c');
     try{
         St.print();
         cout<<St.top()<<'\n';
