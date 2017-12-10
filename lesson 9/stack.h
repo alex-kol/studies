@@ -1,5 +1,5 @@
-#ifndef _STACKNODE_H_
-#define _STACKNODE_H_
+#ifndef _STACK_H_
+#define _STACK_H_
 
 #include <string>
 
