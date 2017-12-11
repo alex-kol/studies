@@ -6,27 +6,24 @@ using namespace std;
 int main()
 {
     Stack<char> St;
-    St.push('a');
-    St.push('b');
     St.push('d');
     St.push('c');
-    try{
-        St.print();
-        cout<<St.top()<<'\n';
-        St.pop();
-        St.print();
-        cout<<St.top()<<'\n';
-        St.pop();
-        St.print();
-        cout<<St.top()<<'\n';
-        St.pop();
-        St.print();
-        cout<<St.top()<<'\n';
-        St.pop();
-        St.print();
-    }
-    catch(const string& e){
-        cout<<e<<'\n';
-    }
+    St.push('b');
+    St.push('a');
+
+    St.print();
+    cout<<St.top()<<'\n';
+    St.pop();
+    St.print();
+    cout<<St.top()<<'\n';
+    St.pop();
+    St.print();
+    cout<<St.top()<<'\n';
+    St.pop();
+    St.print();
+    cout<<St.top()<<'\n';
+    St.pop();
+    St.print();
+
     return 0;
 }

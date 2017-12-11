@@ -31,7 +31,7 @@ public:
 
     void dequeue(){
         if (empty()){
-            throw string("Queue is empty");
+            cout<<"Queue is empty";
         }
         Node* delPtr = head;
         cout<<"Element "<< head->elem <<" is deleted from the queue\n";
@@ -41,14 +41,14 @@ public:
 
     const T& front() const{
         if (empty()){
-            throw string("Queue is empty");
+            cout<<"Queue is empty";
         }
         return head->elem;
     }
 
     void print() const{
         if (empty()){
-            throw string("Queue is empty");
+            cout<<"Queue is empty";
         }
         for(Node* ptr = head; ptr != 0; ptr = ptr->next){
             cout<<ptr->elem<<' ';
@@ -59,10 +59,10 @@ public:
     bool empty() const{
         return head == 0;
     }
+
 private:
     struct Node{
-        Node():next(0), elem(0)
-        {
+        Node():next(0), elem(0){
         }
         Node* next;
         T elem;
