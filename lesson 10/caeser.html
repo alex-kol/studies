@@ -1,9 +1,67 @@
+<!DOCTYPE html>
 <html>
-    <title>
-        Encrypt / Decrypt metod Caeser
-    </title>
-    <body>
-        <script src="caeser.js">
-        </script>
-    </body>
+    <title>Caesar cipher</title>
+<body>
+    <script type="text/javascript">
+        const START_ARRAY = 0;
+        const ENGLISH_ALPHABET = 26;
+        const ASCII_a = 97;
+        const ASCII_A = 65;
+        const ASCII_z = 122;
+        const ASCII_Z = 90;
+
+        var enteredString = "";
+        var cryptKey = 0;
+
+        var encrypt = function(enteredStr, cryptKey){
+            var str = "";
+            for (var i = START_ARRAY; i < enteredStr.length; i++){
+                var plainStr = enteredStr.charCodeAt(i);
+
+                if(plainStr >= ASCII_a && plainStr <= ASCII_z){
+                    str = str + String.fromCharCode((plainStr - ASCII_a + cryptKey) % ENGLISH_ALPHABET + ASCII_a);
+                } else if(plainStr >= ASCII_A && plainStr <= ASCII_Z){
+                    str = str + String.fromCharCode((plainStr - ASCII_A + cryptKey) % ENGLISH_ALPHABET + ASCII_A);
+                } else{
+                    str = str + String.fromCharCode(plainStr);
+                }
+            }
+            document.write("<br>You encryption string: " + str);
+            return str;
+        }
+
+        var decrypt = function(enteredStr, cryptKey){
+            var str = "";
+            for (var i = START_ARRAY; i < enteredStr.length; i++){
+                var cipherStr = enteredStr.charCodeAt(i);
+
+                if (cipherStr >= ASCII_a && cipherStr <= ASCII_z){
+                    str = str + String.fromCharCode((cipherStr - ASCII_a - cryptKey + ENGLISH_ALPHABET) % ENGLISH_ALPHABET + ASCII_a);
+                } else if(cipherStr >= ASCII_A && cipherStr <= ASCII_Z){
+                    str = str + String.fromCharCode((cipherStr - ASCII_A - cryptKey + ENGLISH_ALPHABET) % ENGLISH_ALPHABET + ASCII_A);
+                } else{
+                    str = str + String.fromCharCode(cipherStr);
+                }
+            }
+            document.write("<br>You decryption string: " + enteredStr);
+            return str;
+        }
+
+        cryptKey = Number(prompt("Input crypt key (number): ",""));
+
+        if (!cryptKey){
+            cryptKey = Number(prompt("No entered key! Input crypt key (number): ",""));
+        }
+
+        enteredString = prompt("Input the string: ","");
+
+        if (!enteredString){
+            enteredString = prompt("No entered string! Input the string!","");
+        }
+        document.write("<br>You entered string: " + enteredString + "<br>");
+
+        encrypt(enteredString, cryptKey);
+        decrypt(enteredString, cryptKey);
+    </script>
+</body>
 </html>
