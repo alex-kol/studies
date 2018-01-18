@@ -4,8 +4,9 @@
 <body>
     <script type="text/javascript">
        const ENGLISH_ALPHABET = 26;
+       const START_ARRAY = 0;
 
-       var alphabet = "0abcdefghijklmnopqrstuvwxyz";
+       var alphabet = " abcdefghijklmnopqrstuvwxyz";
        var cipher = [];
 
        var enteredString = prompt("Enter you string:","");
@@ -16,8 +17,8 @@
 
        function encrypt(cryptKey, enteredString){
            var n = 0;
-           for (var i = 1; i <= ENGLISH_ALPHABET; i++){
-               for (var j = 0; j < cryptKey.length; j++){
+           for (var i = START_ARRAY + 1; i <= ENGLISH_ALPHABET; i++){
+               for (var j = START_ARRAY; j < cryptKey.length; j++){
 
                    if (cryptKey[j] == alphabet[i]){
                        if ((enteredString.charCodeAt(n) >= alphabet.charCodeAt(0)) && (enteredString.charCodeAt(n) <= alphabet.charCodeAt(25))){
@@ -36,8 +37,8 @@
        }
        function decrypt(cryptKey, enteredString){
            var n = 0;
-           for (var i = 1; i <= ENGLISH_ALPHABET; i++){
-               for (var j = 0; j < cryptKey.length; j++){
+           for (var i = START_ARRAY + 1; i <= ENGLISH_ALPHABET; i++){
+               for (var j = START_ARRAY; j < cryptKey.length; j++){
 
                    if (cryptKey[j] == alphabet[i]){
                        if ((enteredString.charCodeAt(n) >= alphabet.charCodeAt(0)) && (enteredString.charCodeAt(n) <= alphabet.charCodeAt(25))){
