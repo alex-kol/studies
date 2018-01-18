@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+     <title>Viginer cipher</title>
+<body>
+    <script type="text/javascript">
+       const ENGLISH_ALPHABET = 26;
+
+       var alphabet = "0abcdefghijklmnopqrstuvwxyz";
+       var cipher = [];
+
+       var enteredString = prompt("Enter you string:","");
+       var cryptKey = prompt("Enter key:", "");
+       var selector = prompt("Enter selector 1- Encrypt / 2- Decrypt:", "");
+
+       userChoise(selector, enteredString, cryptKey);
+
+       function encrypt(cryptKey, enteredString){
+           var n = 0;
+           for (var i = 1; i <= ENGLISH_ALPHABET; i++){
+               for (var j = 0; j < cryptKey.length; j++){
+
+                   if (cryptKey[j] == alphabet[i]){
+                       if ((enteredString.charCodeAt(n) >= alphabet.charCodeAt(0)) && (enteredString.charCodeAt(n) <= alphabet.charCodeAt(25))){
+                           cipher[n] = enteredString.charCodeAt(n) + (i % ENGLISH_ALPHABET);
+                           temp = cipher[n];
+                           cipher[n] = String.fromCharCode(cipher[n]);
+                           if (temp > alphabet.charCodeAt(25)){
+                               cipher[n] = alphabet.charCodeAt(0) + (temp - alphabet.charCodeAt(25)) - 1;
+                               cipher[n] = String.fromCharCode(cipher[n]);
+                           }
+                       }
+                       n++;
+                   }
+               }
+           }
+       }
+       function decrypt(cryptKey, enteredString){
+           var n = 0;
+           for (var i = 1; i <= ENGLISH_ALPHABET; i++){
+               for (var j = 0; j < cryptKey.length; j++){
+
+                   if (cryptKey[j] == alphabet[i]){
+                       if ((enteredString.charCodeAt(n) >= alphabet.charCodeAt(0)) && (enteredString.charCodeAt(n) <= alphabet.charCodeAt(25))){
+                           cipher[n] = enteredString.charCodeAt(n) - (i % ENGLISH_ALPHABET);
+                           temp = cipher[n];
+                           cipher[n] = String.fromCharCode(cipher[n]);
+                           if (temp < alphabet.charCodeAt(0)){
+                               cipher[n] = alphabet.charCodeAt(0) + (temp - alphabet.charCodeAt(25)) - 1;
+                               cipher[n] = String.fromCharCode(cipher[n]);
+                           }
+                       }
+                       n++;
+                   }
+               }
+           }
+       }
+
+       function userChoise(selector, enteredString, cryptKey){
+           const ENCRYPT = 1;
+           const DECRYPT = 2;
+
+           document.write("<b>You entered string: </b>" + enteredString + "<br>");
+           document.write("<b>Key: </b>" + cryptKey + "<br>");
+           document.write("<b>Choise: </b>" + selector + "<br>");
+           document.write("========================");
+
+           if (selector == ENCRYPT){
+               encrypt(cryptKey, enteredString);
+               var string = cipher.join('');
+               document.write("<br>You encryption string: " + string);
+           }
+
+           if (selector == DECRYPT){
+               decrypt(cryptKey, enteredString);
+               var string = cipher.join('');
+               document.write("<br>You decryption string: " + string);
+           }
+       }
+    </script>
+</body>
+</html>
